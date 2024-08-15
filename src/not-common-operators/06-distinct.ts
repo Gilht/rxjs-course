@@ -1,10 +1,10 @@
 import { from, of } from "rxjs";
-import { distinct, distinctUntilChanged } from "rxjs/operators";
+import { distinct } from "rxjs/operators";
 
 const numeros$ = of(1,"1",1,2,3,3,4,4,5,3,1);
 
 numeros$.pipe(
-    distinctUntilChanged()
+    distinct()
 )
 .subscribe(console.log)
 
@@ -17,7 +17,7 @@ const personajes: Personaje[]= [
         nombre: "zero"
     },
     {
-        nombre: "zero"
+        nombre: "superman"
     },
     {
         nombre: "joker"
@@ -26,13 +26,13 @@ const personajes: Personaje[]= [
         nombre: "kumi"
     }, 
     {
-        nombre: "ancli"
+        nombre: "zero"
     },
     {
-        nombre: "ancli"
+        nombre: "superman"
     },
 ]
 
 from(personajes).pipe(
-    distinctUntilChanged((ant, act) => ant.nombre === act.nombre)
+    distinct(p => p.nombre)
 ).subscribe(console.log);
