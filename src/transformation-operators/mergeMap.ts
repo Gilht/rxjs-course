@@ -1,6 +1,7 @@
 import { fromEvent, interval, of } from "rxjs"
 import { take, mergeMap, takeUntil } from "rxjs/operators"
 
+//SIRVE PARA SUSCRIBIRSE A TODOS LOS VALORES U OBSERVABLES QUE EMITA 
 const letras$ = of("a", "b", "c", "d")
 
 letras$.pipe(
